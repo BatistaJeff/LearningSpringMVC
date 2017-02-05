@@ -27,17 +27,17 @@ public class JPAConfiguration {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/springmvcestudos");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 
 		factoryBean.setDataSource(dataSource);
 		
 		Properties props = new Properties();
-		props.setProperty("hibermate.hbm2ddl.auto", "update");
+		props.setProperty("hibernate.hbm2ddl.auto", "update");
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		props.setProperty("hibernate.show_sql", "true");
-		factoryBean.setJpaProperties(props);
 		
+		factoryBean.setJpaProperties(props);
 		factoryBean.setPackagesToScan("br.com.estudos.models");
 		
 		return factoryBean;
