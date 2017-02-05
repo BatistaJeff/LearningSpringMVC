@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/springMVCestudo/produtos" method="POST">
+	<form action="/casadocodigo/produtos" method="POST">
 		<div>
 			<label>Titulo</label>
 			<input type="text" name="titulo">
