@@ -1,6 +1,10 @@
 package br.com.estudos.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +24,16 @@ public class Produto {
 	@Column(name="paginas")
 	private int paginas;
 	
+	@ElementCollection
+	private List<Preco> precos;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getTitulo() {
 		return titulo;
 	}
@@ -38,17 +52,22 @@ public class Produto {
 	public void setPaginas(int paginas) {
 		this.paginas = paginas;
 	}
-	public int getId() {
-		return id;
+
+	public List<Preco> getPrecos() {
+		if(this.precos == null) {
+			return this.precos = new ArrayList<Preco>();
+		}
+		return precos;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setPrecos(List<Preco> precos) {
+		this.precos = precos;
 	}
+	
 	
 	@Override
 	public String toString() {
-		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + "]";
+		return "Produto [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas
+				+ ", precos=" + precos + "]";
 	}
-	
 	
 }
