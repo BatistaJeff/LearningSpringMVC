@@ -8,17 +8,21 @@
 </head>
 <body>
 	
+	<div>${sucesso}</div>
+	
 	<table>
 		<tr>
 			<td>Titulo</td>
 			<td>Descrição</td>
 			<td>Páginas</td>
+			<td>Data Lançamento</td>
 		</tr>
 		<c:forEach items="${produtos}" var="produto">
 			<tr>
 				<td>${produto.titulo}</td>
 				<td>${produto.descricao}</td>
 				<td>${produto.paginas}</td>
+				<td>${produto.dataLancamento}</td>
 			</tr>
 		</c:forEach>		
 	
