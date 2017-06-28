@@ -18,7 +18,6 @@ public class ProdutoDao {
 	private EntityManager manager;
 	
 	public void gravar(Produto produto) {
-		System.out.println("persistence");
 		
 		manager.persist(produto);
 	}
@@ -26,6 +25,12 @@ public class ProdutoDao {
 	public List<Produto> listar() {
 
 		return manager.createQuery("select p from Produto p", Produto.class).getResultList();
+	}
+
+	public Produto find(Integer id) {
+
+		return manager.createQuery("select distinct(p) from Produto p join fetch p.precos precos join p.precos "
+				+ "where p.id = :id", Produto.class).setParameter("id", id).getSingleResult();
 	}
 
 
